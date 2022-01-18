@@ -7,8 +7,16 @@ abstract class _MovieViewModelBase with Store {
   @observable
   String movieName ="";
 
+  @observable
+  String movieId ="";
+
   @action
-  void changeMovieName(String movieName) {
+  changeMovieId(String movieId) {
+    this.movieId=movieId;
+  }
+
+  @action
+  changeMovieName(String movieName) {
     this.movieName=movieName;
   }
 }
