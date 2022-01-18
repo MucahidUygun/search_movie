@@ -47,7 +47,7 @@ class MovieView extends StatelessWidget{
                       Text("Years: " + snapshot.data!.result![index].year),
                       TextButton(
                         onPressed: (){},
-                        child: Text("Show the detail"),
+                        child: Text("Show  detail"),
                       ),
                     ],
                   ),

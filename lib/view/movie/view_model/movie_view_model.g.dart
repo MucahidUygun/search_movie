@@ -24,11 +24,37 @@ mixin _$MovieViewModel on _MovieViewModelBase, Store {
     });
   }
 
+  final _$movieIdAtom = Atom(name: '_MovieViewModelBase.movieId');
+
+  @override
+  String get movieId {
+    _$movieIdAtom.reportRead();
+    return super.movieId;
+  }
+
+  @override
+  set movieId(String value) {
+    _$movieIdAtom.reportWrite(value, super.movieId, () {
+      super.movieId = value;
+    });
+  }
+
   final _$_MovieViewModelBaseActionController =
       ActionController(name: '_MovieViewModelBase');
 
   @override
-  void changeMovieName(String movieName) {
+  dynamic changeMovieId(String movieId) {
+    final _$actionInfo = _$_MovieViewModelBaseActionController.startAction(
+        name: '_MovieViewModelBase.changeMovieId');
+    try {
+      return super.changeMovieId(movieId);
+    } finally {
+      _$_MovieViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  dynamic changeMovieName(String movieName) {
     final _$actionInfo = _$_MovieViewModelBaseActionController.startAction(
         name: '_MovieViewModelBase.changeMovieName');
     try {
@@ -41,7 +67,8 @@ mixin _$MovieViewModel on _MovieViewModelBase, Store {
   @override
   String toString() {
     return '''
-movieName: ${movieName}
+movieName: ${movieName},
+movieId: ${movieId}
     ''';
   }
 }

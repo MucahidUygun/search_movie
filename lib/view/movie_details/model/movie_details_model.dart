@@ -1,58 +1,80 @@
-class MovieModelDetails {
-  String? title;
-  String? year;
-  String? rated;
-  String? released;
-  String? runtime;
-  String? genre;
-  String? director;
-  String? writer;
-  String? actors;
-  String? plot;
-  String? language;
-  String? country;
-  String? awards;
-  String? poster;
-  List<Ratings>? ratings;
-  String? metascore;
-  String? imdbRating;
-  String? imdbVotes;
-  String? imdbID;
-  String? type;
-  String? dVD;
-  String? boxOffice;
-  String? production;
-  String? website;
-  String? response;
+class MovieDetailsModel {
+  bool? success;
+  Result? result;
 
-  MovieModelDetails(
-      {this.title,
-      this.year,
-      this.rated,
-      this.released,
-      this.runtime,
-      this.genre,
-      this.director,
-      this.writer,
-      this.actors,
-      this.plot,
-      this.language,
-      this.country,
-      this.awards,
-      this.poster,
-      this.ratings,
-      this.metascore,
-      this.imdbRating,
-      this.imdbVotes,
-      this.imdbID,
-      this.type,
-      this.dVD,
-      this.boxOffice,
-      this.production,
-      this.website,
-      this.response});
+  MovieDetailsModel({this.success, this.result});
 
-  MovieModelDetails.fromJson(Map<String, dynamic> json) {
+  MovieDetailsModel.fromJson(Map<String, dynamic> json) {
+    success = json['success'];
+    result =
+        json['result'] != null ? new Result.fromJson(json['result']) : null;
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['success'] = this.success;
+    if (this.result != null) {
+      data['result'] = this.result!.toJson();
+    }
+    return data;
+  }
+}
+
+class Result {
+  late String title;
+  late String year;
+  late String rated;
+  late String released;
+  late String runtime;
+  late String genre;
+  late String director;
+  late String writer;
+  late String actors;
+  late String plot;
+  late String language;
+  late String country;
+  late String awards;
+  late String poster;
+  late List<Ratings> ratings;
+  late String metascore;
+  late String imdbRating;
+  late String imdbVotes;
+  late String imdbID;
+  late String type;
+  late String dVD;
+  late String boxOffice;
+  late String production;
+  late String website;
+  late String response;
+
+  Result(
+      {required this.title,
+      required this.year,
+      required this.rated,
+      required this.released,
+      required this.runtime,
+      required this.genre,
+      required this.director,
+      required this.writer,
+      required this.actors,
+      required this.plot,
+      required this.language,
+      required this.country,
+      required this.awards,
+      required this.poster,
+      required this.ratings,
+      required this.metascore,
+      required this.imdbRating,
+      required this.imdbVotes,
+      required this.imdbID,
+      required this.type,
+      required this.dVD,
+      required this.boxOffice,
+      required this.production,
+      required this.website,
+      required this.response});
+
+  Result.fromJson(Map<String, dynamic> json) {
     title = json['Title'];
     year = json['Year'];
     rated = json['Rated'];
@@ -70,7 +92,7 @@ class MovieModelDetails {
     if (json['Ratings'] != null) {
       ratings = <Ratings>[];
       json['Ratings'].forEach((v) {
-        ratings!.add(new Ratings.fromJson(v));
+        ratings.add(new Ratings.fromJson(v));
       });
     }
     metascore = json['Metascore'];
@@ -102,7 +124,7 @@ class MovieModelDetails {
     data['Awards'] = this.awards;
     data['Poster'] = this.poster;
     if (this.ratings != null) {
-      data['Ratings'] = this.ratings!.map((v) => v.toJson()).toList();
+      data['Ratings'] = this.ratings.map((v) => v.toJson()).toList();
     }
     data['Metascore'] = this.metascore;
     data['imdbRating'] = this.imdbRating;
