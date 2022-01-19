@@ -1,0 +1,1 @@
+enum UrlEnum{MOVIE_URL,MOVIE_DETAILS_URL}
