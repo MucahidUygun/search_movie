@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text('Movie App'),
         ),
-        body: MovieView(),
+        body: MovieDetailsView(),
       ),
     );
   }

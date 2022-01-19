@@ -3,5 +3,4 @@ extension ApiStringExtension on String {
   String get typeContent => "application/json";
   String get urlMovie => "https://api.collectapi.com/imdb/imdbSearchByName?query=";
   String get urlMovieDetails => "https://api.collectapi.com/imdb/imdbSearchById?movieId=";
-
 }

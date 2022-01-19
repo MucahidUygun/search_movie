@@ -19,13 +19,37 @@ class MovieDetailsView extends StatelessWidget {
             );
           } else {
             return PageView.builder(
-              itemCount: snapshot.data!.result!.title.length,
+              itemCount: 1,
               controller: PageController(initialPage: 0),
               scrollDirection: Axis.vertical,
               itemBuilder:(BuildContext context,int index){
-                return Stack(
+                return  Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    //Image.network(snapshot.data!.poster),
+                    Image.network(snapshot.data?.result?.poster ?? "emptyImageUrl.jpg"),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Text("Actors: ${snapshot.data?.result?.actors}")
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          Text("Imbd rating: ${snapshot.data?.result?.imdbRatings}"),
+                          Text("Movie name: ${snapshot.data?.result?.title}"),
+                          Text("Director: ${snapshot.data?.result?.director}"),
+                        ],
+                      ),
+                    ),
                   ],
                 );
               } 
