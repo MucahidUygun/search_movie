@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:search_movie/view/movie/view/movie_view.dart';
 
-import 'view/movie_details/view/movie_details_view.dart';
+import 'view/splah/splash_page.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text('Movie App'),
         ),
-        body: MovieDetailsView(),
+        body: const SplashPage(),
       ),
     );
   }

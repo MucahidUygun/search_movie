@@ -25,11 +25,11 @@ class MovieModel {
 }
 
 class Result {
-  late String title;
-  late String year;
-  late String imdbID;
-  late String type;
-  late String poster;
+  String? title;
+  String? year;
+  String? imdbID;
+  String? type;
+  String? poster;
 
   Result({required this.title,required this.year,required this.imdbID,required this.type,required this.poster});
 

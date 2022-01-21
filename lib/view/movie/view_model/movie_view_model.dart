@@ -1,4 +1,6 @@
 import 'package:mobx/mobx.dart';
+import 'package:search_movie/core/services/movie_services.dart';
+import 'package:search_movie/view/movie/model/movie_model.dart';
 part 'movie_view_model.g.dart';
 
 class MovieViewModel = _MovieViewModelBase with _$MovieViewModel;
@@ -8,11 +10,12 @@ abstract class _MovieViewModelBase with Store {
   String movieName ="";
 
   @observable
-  String movieId ="";
+  MovieModel movieModel = MovieModel();
 
   @action
-  changeMovieId(String movieId) {
-    this.movieId=movieId;
+  Future<void> uploadMovieModel() async {
+    movieModel = await MovieServices.getMovie(movieName);
+    print(movieModel.result![1].title);
   }
 
   @action

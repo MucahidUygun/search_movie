@@ -24,34 +24,31 @@ mixin _$MovieViewModel on _MovieViewModelBase, Store {
     });
   }
 
-  final _$movieIdAtom = Atom(name: '_MovieViewModelBase.movieId');
+  final _$movieModelAtom = Atom(name: '_MovieViewModelBase.movieModel');
 
   @override
-  String get movieId {
-    _$movieIdAtom.reportRead();
-    return super.movieId;
+  MovieModel get movieModel {
+    _$movieModelAtom.reportRead();
+    return super.movieModel;
   }
 
   @override
-  set movieId(String value) {
-    _$movieIdAtom.reportWrite(value, super.movieId, () {
-      super.movieId = value;
+  set movieModel(MovieModel value) {
+    _$movieModelAtom.reportWrite(value, super.movieModel, () {
+      super.movieModel = value;
     });
+  }
+
+  final _$uploadMovieModelAsyncAction =
+      AsyncAction('_MovieViewModelBase.uploadMovieModel');
+
+  @override
+  Future<void> uploadMovieModel() {
+    return _$uploadMovieModelAsyncAction.run(() => super.uploadMovieModel());
   }
 
   final _$_MovieViewModelBaseActionController =
       ActionController(name: '_MovieViewModelBase');
-
-  @override
-  dynamic changeMovieId(String movieId) {
-    final _$actionInfo = _$_MovieViewModelBaseActionController.startAction(
-        name: '_MovieViewModelBase.changeMovieId');
-    try {
-      return super.changeMovieId(movieId);
-    } finally {
-      _$_MovieViewModelBaseActionController.endAction(_$actionInfo);
-    }
-  }
 
   @override
   dynamic changeMovieName(String movieName) {
@@ -68,7 +65,7 @@ mixin _$MovieViewModel on _MovieViewModelBase, Store {
   String toString() {
     return '''
 movieName: ${movieName},
-movieId: ${movieId}
+movieModel: ${movieModel}
     ''';
   }
 }
