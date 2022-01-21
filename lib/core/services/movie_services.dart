@@ -1,7 +1,5 @@
-import 'package:dio/dio.dart';
 import 'package:search_movie/core/clint/network_clint.dart';
 import 'package:search_movie/view/movie/model/movie_model.dart';
-import 'package:search_movie/core/extension/string_extension.dart';
 
 class MovieServices {
   static Future<MovieModel> getMovie(String movieName) async {
