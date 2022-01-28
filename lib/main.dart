@@ -10,10 +10,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        backgroundColor: Colors.grey[200]
+      ),
       title: 'Movie App',
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Movie App'),
+          title: const Text('Movie App'),
         ),
         body: const SplashPage(),
       ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:search_movie/core/widget/assets_image_widget.dart';
 import 'package:search_movie/view/search_words/search_words_view.dart';
 
 class SplashPage extends StatefulWidget {
@@ -17,7 +18,7 @@ class _SplashPageState extends State<SplashPage> {
     ).then((value) => Navigator.pushReplacement(
         context, MaterialPageRoute(
           builder: (BuildContext context)=>
-          SearchWordsView()
+          const SearchWordsView()
         )
       )
     );
@@ -32,9 +33,9 @@ class _SplashPageState extends State<SplashPage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
+              SizedBox(
                 width: MediaQuery.of(context).size.width,
-                child: Image.asset('splashPage.jpg'),
+                child:  getImage('assets/image/splashPage.jpg',),
               ),
             ],
           ),

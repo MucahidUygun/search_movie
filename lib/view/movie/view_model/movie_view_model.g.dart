@@ -24,6 +24,21 @@ mixin _$MovieViewModel on _MovieViewModelBase, Store {
     });
   }
 
+  final _$selectedIndexAtom = Atom(name: '_MovieViewModelBase.selectedIndex');
+
+  @override
+  int get selectedIndex {
+    _$selectedIndexAtom.reportRead();
+    return super.selectedIndex;
+  }
+
+  @override
+  set selectedIndex(int value) {
+    _$selectedIndexAtom.reportWrite(value, super.selectedIndex, () {
+      super.selectedIndex = value;
+    });
+  }
+
   final _$movieModelAtom = Atom(name: '_MovieViewModelBase.movieModel');
 
   @override
@@ -43,12 +58,56 @@ mixin _$MovieViewModel on _MovieViewModelBase, Store {
       AsyncAction('_MovieViewModelBase.uploadMovieModel');
 
   @override
-  Future<void> uploadMovieModel() {
+  Future uploadMovieModel() {
     return _$uploadMovieModelAsyncAction.run(() => super.uploadMovieModel());
   }
 
   final _$_MovieViewModelBaseActionController =
       ActionController(name: '_MovieViewModelBase');
+
+  @override
+  dynamic incrementIndexPage() {
+    final _$actionInfo = _$_MovieViewModelBaseActionController.startAction(
+        name: '_MovieViewModelBase.incrementIndexPage');
+    try {
+      return super.incrementIndexPage();
+    } finally {
+      _$_MovieViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  dynamic minimizeIndex() {
+    final _$actionInfo = _$_MovieViewModelBaseActionController.startAction(
+        name: '_MovieViewModelBase.minimizeIndex');
+    try {
+      return super.minimizeIndex();
+    } finally {
+      _$_MovieViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  dynamic changeIndicator(TabController _tabcontroller) {
+    final _$actionInfo = _$_MovieViewModelBaseActionController.startAction(
+        name: '_MovieViewModelBase.changeIndicator');
+    try {
+      return super.changeIndicator(_tabcontroller);
+    } finally {
+      _$_MovieViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  dynamic changePage(TabController _tabcontroller, int index) {
+    final _$actionInfo = _$_MovieViewModelBaseActionController.startAction(
+        name: '_MovieViewModelBase.changePage');
+    try {
+      return super.changePage(_tabcontroller, index);
+    } finally {
+      _$_MovieViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
 
   @override
   dynamic changeMovieName(String movieName) {
@@ -65,6 +124,7 @@ mixin _$MovieViewModel on _MovieViewModelBase, Store {
   String toString() {
     return '''
 movieName: ${movieName},
+selectedIndex: ${selectedIndex},
 movieModel: ${movieModel}
     ''';
   }
