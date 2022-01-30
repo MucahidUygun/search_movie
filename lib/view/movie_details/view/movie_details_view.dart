@@ -4,7 +4,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:search_movie/core/extension/theme_data_extension.dart';
 import 'package:search_movie/core/widget/assets_image_widget.dart';
-import 'package:search_movie/view/movie/view/movie_view.dart';
 
 import '../view_model/movie_details_vm.dart';
 

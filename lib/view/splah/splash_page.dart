@@ -35,7 +35,7 @@ class _SplashPageState extends State<SplashPage> {
             children: [
               SizedBox(
                 width: MediaQuery.of(context).size.width,
-                child:  getImage('assets/image/splashPage.jpg',),
+                child:  getImage('',),
               ),
             ],
           ),

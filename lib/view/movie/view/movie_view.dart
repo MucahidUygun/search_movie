@@ -130,10 +130,4 @@ class _MovieViewState extends State<MovieView>
   }
 }
 
-Widget getImage(String url) {
-  if (url == "N/A") {
-    return const AssetsImageWidget(path: "assets/image/emptyImageUrl.jpg",);
-  } else {
-    return Image.network(url);
-  }
-}
+
