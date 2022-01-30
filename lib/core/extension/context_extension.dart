@@ -12,12 +12,11 @@ extension MediaQueryExtension on BuildContext{
   double get normalValue => height*0.02;
   double get mediumValue => height*0.04;
   double get highValue => height*0.1;
-}
-
-extension ThemeExtension on BuildContext{
-  ThemeData get theme => Theme.of(this);
-  TextTheme get textTheme => theme.textTheme;
-  ColorScheme get colorSheme => theme.colorScheme;
+  
+  double get lowValueWidht => width*0.01;
+  double get normalValueWidht => width*0.02;
+  double get mediumValueWidht => width*0.04;
+  double get highValueWidht => width*0.1;
 }
 extension PaddingExtension on BuildContext{
   EdgeInsets get paddingLow => EdgeInsets.all(lowValue);
