@@ -24,30 +24,86 @@ mixin _$MovieViewModel on _MovieViewModelBase, Store {
     });
   }
 
-  final _$movieIdAtom = Atom(name: '_MovieViewModelBase.movieId');
+  final _$selectedIndexAtom = Atom(name: '_MovieViewModelBase.selectedIndex');
 
   @override
-  String get movieId {
-    _$movieIdAtom.reportRead();
-    return super.movieId;
+  int get selectedIndex {
+    _$selectedIndexAtom.reportRead();
+    return super.selectedIndex;
   }
 
   @override
-  set movieId(String value) {
-    _$movieIdAtom.reportWrite(value, super.movieId, () {
-      super.movieId = value;
+  set selectedIndex(int value) {
+    _$selectedIndexAtom.reportWrite(value, super.selectedIndex, () {
+      super.selectedIndex = value;
     });
+  }
+
+  final _$movieModelAtom = Atom(name: '_MovieViewModelBase.movieModel');
+
+  @override
+  MovieModel get movieModel {
+    _$movieModelAtom.reportRead();
+    return super.movieModel;
+  }
+
+  @override
+  set movieModel(MovieModel value) {
+    _$movieModelAtom.reportWrite(value, super.movieModel, () {
+      super.movieModel = value;
+    });
+  }
+
+  final _$uploadMovieModelAsyncAction =
+      AsyncAction('_MovieViewModelBase.uploadMovieModel');
+
+  @override
+  Future uploadMovieModel() {
+    return _$uploadMovieModelAsyncAction.run(() => super.uploadMovieModel());
   }
 
   final _$_MovieViewModelBaseActionController =
       ActionController(name: '_MovieViewModelBase');
 
   @override
-  dynamic changeMovieId(String movieId) {
+  dynamic incrementIndexPage() {
     final _$actionInfo = _$_MovieViewModelBaseActionController.startAction(
-        name: '_MovieViewModelBase.changeMovieId');
+        name: '_MovieViewModelBase.incrementIndexPage');
     try {
-      return super.changeMovieId(movieId);
+      return super.incrementIndexPage();
+    } finally {
+      _$_MovieViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  dynamic minimizeIndex() {
+    final _$actionInfo = _$_MovieViewModelBaseActionController.startAction(
+        name: '_MovieViewModelBase.minimizeIndex');
+    try {
+      return super.minimizeIndex();
+    } finally {
+      _$_MovieViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  dynamic changeIndicator(TabController _tabcontroller) {
+    final _$actionInfo = _$_MovieViewModelBaseActionController.startAction(
+        name: '_MovieViewModelBase.changeIndicator');
+    try {
+      return super.changeIndicator(_tabcontroller);
+    } finally {
+      _$_MovieViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  dynamic changePage(TabController _tabcontroller, int index) {
+    final _$actionInfo = _$_MovieViewModelBaseActionController.startAction(
+        name: '_MovieViewModelBase.changePage');
+    try {
+      return super.changePage(_tabcontroller, index);
     } finally {
       _$_MovieViewModelBaseActionController.endAction(_$actionInfo);
     }
@@ -68,7 +124,8 @@ mixin _$MovieViewModel on _MovieViewModelBase, Store {
   String toString() {
     return '''
 movieName: ${movieName},
-movieId: ${movieId}
+selectedIndex: ${selectedIndex},
+movieModel: ${movieModel}
     ''';
   }
 }
