@@ -1,15 +1,17 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:search_movie/core/extension/theme_data_extension.dart';
+import 'package:search_movie/core/theme/theme_data_extension.dart';
+import 'package:search_movie/core/widget/appbar.dart';
 import 'package:search_movie/core/widget/assets_image_widget.dart';
+
+import 'package:search_movie/core/extension/context_extension.dart';
 
 import '../view_model/movie_details_vm.dart';
 
 class MovieDetailsView extends StatefulWidget {
-  late String movieId;
-  MovieDetailsView({Key? key, required this.movieId}) : super(key: key);
+  final String movieId;
+  const MovieDetailsView({Key? key, required this.movieId}) : super(key: key);
 
   @override
   State<MovieDetailsView> createState() => _MovieDetailsViewState();
@@ -27,11 +29,11 @@ class _MovieDetailsViewState extends State<MovieDetailsView> {
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        systemOverlayStyle: SystemUiOverlayStyle.light,
-        elevation: 0,
+      appBar:PreferredSize(
+      preferredSize: Size(context.width, context.heightAppBar),
+      child: const AppBarWidget(),
       ),
       body: Observer(builder: (context) =>
          _movieDetailsViewModel.movieDetailsModel.success == false || _movieDetailsViewModel.movieDetailsModel.result==null

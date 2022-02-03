@@ -17,10 +17,23 @@ extension MediaQueryExtension on BuildContext{
   double get normalValueWidht => width*0.02;
   double get mediumValueWidht => width*0.04;
   double get highValueWidht => width*0.1;
+
+  double get heightAppBar => height*0.075;
 }
 extension PaddingExtension on BuildContext{
   EdgeInsets get paddingLow => EdgeInsets.all(lowValue);
   EdgeInsets get paddingNormal => EdgeInsets.all(normalValue);
   EdgeInsets get paddingMedium => EdgeInsets.all(mediumValue);
   EdgeInsets get paddingHigh => EdgeInsets.all(highValue);
+  EdgeInsets get paddingTop => EdgeInsets.only(top:primaryRegularValue);
+}
+
+extension PrimaryValue on BuildContext{
+  double get primaryExtraLowValue => 2;
+  double get primaryLowValue => 4;
+  double get primaryNormalValue => 8;
+  double get primaryRegularValue => 10;
+  double get primaryExtraRegularValue => 12;
+  double get primaryMediumValue => 16;
+  double get primaryHighValue => 24;
 }

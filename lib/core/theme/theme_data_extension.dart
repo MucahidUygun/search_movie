@@ -9,33 +9,40 @@ extension ThemeDataExtesion on ThemeData{
         fontWeight: FontWeight.w900,
         color: Color(0xFFFFFFFF));
   }
+  TextStyle get headline2{
+    return const TextStyle(
+      fontFamily: 'Inter',
+      fontSize: 24,
+      fontWeight: FontWeight.w800,
+    );
+  }
 
-  TextStyle get headline2 {
+  TextStyle get headline3 {
     return const TextStyle(
         fontFamily: 'Inter',
-        fontSize: 26,
+        fontSize: 20,
         height: 1,
         fontWeight: FontWeight.w700,
         color: Color(0xFF000000));
   }
 
-  TextStyle get headline3 {
-    return const TextStyle(
-      fontFamily: 'Inter',
-      fontSize: 22,
-      fontWeight: FontWeight.w400,
-    );
-  }
-
   TextStyle get headline4 {
     return const TextStyle(
       fontFamily: 'Inter',
-      fontSize: 24,
+      fontSize: 16,
       fontWeight: FontWeight.w600,
     );
   }
 
-  TextStyle headline5({bool localDark = false}) {
+  TextStyle get headline5 {
+    return const TextStyle(
+      fontFamily: 'Inter',
+      fontSize: 12,
+      fontWeight: FontWeight.w500,
+    );
+  }
+
+  TextStyle headline6({bool localDark = false}) {
     return TextStyle(
         fontFamily: 'Inter',
         fontSize: 22,
@@ -45,11 +52,17 @@ extension ThemeDataExtesion on ThemeData{
             : Colors.black);
   }
 
-  TextStyle get headline6 {
+  TextStyle get headline7 {
     return const TextStyle(
       fontFamily: 'Inter',
-      fontSize: 12,
+      fontSize: 10,
       fontWeight: FontWeight.w400,
+    );
+  }TextStyle get headline8 {
+    return const TextStyle(
+      fontFamily: 'Inter',
+      fontSize: 8,
+      fontWeight: FontWeight.w300,
     );
   }
 

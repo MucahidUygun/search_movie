@@ -1,5 +1,9 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'package:search_movie/core/extension/context_extension.dart';
+import 'package:search_movie/core/theme/theme_colors.dart';
+import 'package:search_movie/core/theme/theme_data_extension.dart';
 import 'package:search_movie/view/movie/view/movie_view.dart';
 
 class SearchWordsView extends StatelessWidget {
@@ -9,36 +13,41 @@ class SearchWordsView extends StatelessWidget {
   Widget build(BuildContext context) {
 
   final TextEditingController textEditingController = TextEditingController();
-  //final MovieViewModel _viewModel = MovieViewModel();
-  //final MovieViewModel _viewModel1 = MovieViewModel();
 
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: context.paddingMedium,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             TextFormField(
               cursorHeight: context.lowValue,
               controller: textEditingController,
+  
               decoration: InputDecoration(
                 border: UnderlineInputBorder(
                   borderRadius: BorderRadius.circular(5),
+                  borderSide:const BorderSide(color: ThemeColor.titleDarkColor),
                   ),
-                labelText: "Please enter the name of the movie you want to search"
+                contentPadding: EdgeInsets.only(left: context.primaryLowValue),
+                hintText: "Please enter the name of the movie you want to search",
+                hintStyle: Theme.of(context).headline5.copyWith(
+                color: ThemeColor.titleLightColor,
+                ),
               )
             ),
             TextButton(
               onPressed: () async {
-                //_viewModel.changeMovieName(textEditingController.text);
-                //await _viewModel.uploadMovieModel();
-                //print("search page ${_viewModel1.movieModel.result?[1].imdbID}");
-                //print(textEditingController.text);
                 Navigator.push( context, 
                   MaterialPageRoute(builder: (BuildContext context)=> MovieView(movieName:textEditingController.value.text)));
               }, 
-              child: const Text("Send"),
+              child: Text(
+                "Send",
+                style: Theme.of(context).headline4.copyWith(
+                color: ThemeColor.titleDarkColor,
+                ),
+              ),
             )
           ],
         ),

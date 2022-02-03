@@ -1,15 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:search_movie/core/widget/assets_image_widget.dart';
-import 'package:search_movie/view/movie/view_model/movie_view_model.dart';
-import 'package:search_movie/view/movie_details/view/movie_details_view.dart';
+import 'package:search_movie/core/extension/context_extension.dart';
+import 'package:search_movie/core/theme/theme_colors.dart';
+import 'package:search_movie/core/theme/theme_data_extension.dart';
+
+import '../../../core/widget/appbar.dart';
+import '../../../core/widget/assets_image_widget.dart';
+import '../../movie_details/view/movie_details_view.dart';
+import '../view_model/movie_view_model.dart';
 
 class MovieView extends StatefulWidget {
-  late String movieName;
+  final String movieName;
 
-  MovieView({Key? key, required this.movieName}) : super(key: key);
+  const MovieView({Key? key, required this.movieName}) : super(key: key);
 
   @override
   State<MovieView> createState() => _MovieViewState();
@@ -30,14 +34,9 @@ class _MovieViewState extends State<MovieView>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text(
-          "Search Movie App",
-          ),
-        backgroundColor: Colors.pink,
-        systemOverlayStyle: SystemUiOverlayStyle.dark,
-        elevation: 0,
+      appBar: PreferredSize(
+      preferredSize: Size(context.width, context.heightAppBar),
+      child: const AppBarWidget(),
       ),
       body: Observer(
           builder: (context) => 
@@ -45,23 +44,26 @@ class _MovieViewState extends State<MovieView>
             ? const Center(
               child: CircularProgressIndicator(),
             )
-            : Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Expanded(
-                flex: 4,
-                child: buildPageViewBuilder(),
-            ),
+            : Padding(
+              padding: context.paddingTop,
+              child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
                 Expanded(
-                  flex: 1,
-                  child: TabPageSelector(indicatorSize: 15,
-                    controller: _tabController,
-                      color: Colors.grey,
-                      selectedColor: Colors.pink,
+                  flex: 4,
+                  child: buildPageViewBuilder(),
+              ),
+                  Expanded(
+                    flex: 1,
+                    child: TabPageSelector(indicatorSize: 15,
+                      controller: _tabController,
+                        color: ThemeColor.titleLightColor,
+                        selectedColor: ThemeColor.titleDarkColor,
+                    ),
                   ),
-                ),
-            ],
+              ],
           ),
+            ),
         ),
     );
   }
@@ -97,7 +99,13 @@ class _MovieViewState extends State<MovieView>
                             flex: 1,
                             child: Text(_viewModel
                                     .movieModel.result?[index].title ??
-                                "")),
+                                "",
+                                style: Theme.of(context).headline3.copyWith(
+                                  color: ThemeColor.titleDarkColor,
+                                  fontWeight: FontWeight.bold
+                                 ),
+                                ),
+                              ),
                         Expanded(
                           flex: 3,
                           child: Card(
@@ -115,10 +123,17 @@ class _MovieViewState extends State<MovieView>
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Text(
-                                  "Type: ${_viewModel.movieModel.result?[index].type} "),
+                                  "Type: ${_viewModel.movieModel.result?[index].type} ",
+                                style: Theme.of(context).headline4.copyWith(
+                                  color: ThemeColor.titleDarkColor,
+                                 ),
+                                ),
                               Text(
-                                  "Years: ${_viewModel.movieModel.result?[index].year}"),
-                              const Icon(Icons.more_vert_sharp),
+                                  "Years: ${_viewModel.movieModel.result?[index].year}",
+                                style: Theme.of(context).headline4.copyWith(
+                                  color: ThemeColor.titleDarkColor,
+                                 ),),
+                              const Icon(Icons.more_vert_sharp,color: ThemeColor.titleDarkColor,),
                             ],
                           ),
                         ),
