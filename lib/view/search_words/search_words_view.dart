@@ -1,5 +1,3 @@
-import 'dart:js';
-
 import 'package:flutter/material.dart';
 import 'package:search_movie/core/extension/context_extension.dart';
 import 'package:search_movie/core/theme/theme_colors.dart';
