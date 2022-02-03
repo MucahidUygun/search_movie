@@ -27,19 +27,9 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Center(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(
-                width: MediaQuery.of(context).size.width,
-                child:  getImage('',),
-              ),
-            ],
-          ),
-        ),
+      body: SizedBox(
+        height: MediaQuery.of(context).size.height,
+        child:  getImage(''),
       ),
     );
   }

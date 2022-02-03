@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:search_movie/core/extension/context_extension.dart';
+import 'package:search_movie/core/widget/appbar.dart';
 
 import 'view/splah/splash_page.dart';
 
@@ -14,11 +16,8 @@ class MyApp extends StatelessWidget {
         backgroundColor: Colors.grey[200]
       ),
       title: 'Movie App',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Movie App'),
-        ),
-        body: const SplashPage(),
+      home: const Scaffold(
+        body:  SplashPage(),
       ),
     );
   }
