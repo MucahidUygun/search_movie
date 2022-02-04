@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:search_movie/core/theme/theme_colors.dart';
 
 
 extension ThemeDataExtesion on ThemeData{
@@ -30,7 +31,8 @@ extension ThemeDataExtesion on ThemeData{
     return const TextStyle(
       fontFamily: 'Inter',
       fontSize: 16,
-      fontWeight: FontWeight.w600,
+      fontWeight: FontWeight.w800,
+      color: ThemeColor.titleDarkColor
     );
   }
 

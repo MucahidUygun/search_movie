@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:search_movie/core/extension/string_extension.dart';
 
 Widget getImage(String url) {
-  if (url == "N/A" || url =="assets/image/emptyImageUrl.jpg") {
-    return Image.asset("assets/image/emptyImageUrl.jpg",);
+  if (url == "".nA || url =="".emptyImageUrl) {
+    return Image.asset("".emptyImageUrl,);
   }else if(url == ""){
     return Image.asset(
-      "assets/image/splash.jpg",
+      "".splash,
       fit: BoxFit.fill,
       );
   } 
