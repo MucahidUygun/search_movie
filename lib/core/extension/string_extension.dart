@@ -1,5 +1,5 @@
 extension StringExtension on String {
-  String get apiKey => "apikey 7qMJa9T4MvDcwFKplwqKqP:46SNHvj61IBWUQIhImt8J0";
+  String get apiKey => "api key";
   String get typeContent => "application/json";
   String get urlMovie => "https://api.collectapi.com/imdb/imdbSearchByName?query=";
   String get urlMovieDetails => "https://api.collectapi.com/imdb/imdbSearchById?movieId=";
@@ -9,5 +9,4 @@ extension StringExtension on String {
   String get emptyImageUrl=>"assets/image/emptyImageUrl.jpg";
   String get nA=> "N/A";
   String get splash => "assets/image/splash.jpg";
-
 }
