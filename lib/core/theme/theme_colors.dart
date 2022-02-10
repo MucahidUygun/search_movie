@@ -6,4 +6,5 @@ class ThemeColor {
   static const titleLightColor = Color(0xffa5adb5);
   static const appBarColor = Color(0xff121f2b);
   static const appBarLightColor = Color(0xffe8eaec);
+  static const buttonColor = Color(0xff090b0c);
 }

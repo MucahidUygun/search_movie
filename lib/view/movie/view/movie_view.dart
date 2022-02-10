@@ -4,6 +4,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:search_movie/core/extension/context_extension.dart';
 import 'package:search_movie/core/theme/theme_colors.dart';
 import 'package:search_movie/core/theme/theme_data_extension.dart';
+import 'package:search_movie/core/widget/text_widget.dart';
 
 import '../../../core/widget/appbar.dart';
 import '../../../core/widget/assets_image_widget.dart';
@@ -36,7 +37,7 @@ class _MovieViewState extends State<MovieView>
     return Scaffold(
       appBar: PreferredSize(
       preferredSize: Size(context.width, context.heightAppBar),
-      child: const AppBarWidget(),
+      child: const AppBarWidget(automaticallyImplyLeading: false,),
       ),
       body: Observer(
           builder: (context) => 
@@ -97,14 +98,12 @@ class _MovieViewState extends State<MovieView>
                       children: [
                         Expanded(
                             flex: 1,
-                            child: Text(_viewModel
+                            child: getText(_viewModel
                                     .movieModel.result?[index].title ??
-                                "",
-                                style: Theme.of(context).headline3.copyWith(
+                                "", context, ThemeData().headline3.copyWith(
                                   color: ThemeColor.titleDarkColor,
                                   fontWeight: FontWeight.bold
-                                 ),
-                                ),
+                                 ),)
                               ),
                         Expanded(
                           flex: 3,
@@ -122,17 +121,16 @@ class _MovieViewState extends State<MovieView>
                                 MainAxisAlignment.spaceEvenly,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Text(
-                                  "Type: ${_viewModel.movieModel.result?[index].type} ",
-                                style: Theme.of(context).headline4.copyWith(
-                                  color: ThemeColor.titleDarkColor,
-                                 ),
+                              getText(
+                                  "Type: ${_viewModel.movieModel.result?[index].type}",
+                                  context,
+                                  Theme.of(context).headline4
                                 ),
-                              Text(
-                                  "Years: ${_viewModel.movieModel.result?[index].year}",
-                                style: Theme.of(context).headline4.copyWith(
-                                  color: ThemeColor.titleDarkColor,
-                                 ),),
+                              getText(
+                                 "Years: ${_viewModel.movieModel.result?[index].year}",
+                                 context,
+                                 Theme.of(context).headline4,
+                                ),
                               const Icon(Icons.more_vert_sharp,color: ThemeColor.titleDarkColor,),
                             ],
                           ),

@@ -20,6 +20,5 @@ abstract class _MovieDetailsViewModelBase with Store {
    @action
    changeMovieDetails() async {
     movieDetailsModel = await MovieDetailsServices.getMovieDetails(_movieId);
-  
   }
 }
