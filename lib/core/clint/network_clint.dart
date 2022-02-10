@@ -10,6 +10,6 @@ class NetworkClint {
   NetworkClint._init(){
     dio = Dio();
     dio.options.headers["content-Type"]="application/json";
-    dio.options.headers["Authorization"]="apikey 7qMJa9T4MvDcwFKplwqKqP:46SNHvj61IBWUQIhImt8J0";
+    dio.options.headers["Authorization"]="apikey";
   }
 }
